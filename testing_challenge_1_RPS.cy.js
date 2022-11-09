@@ -11,7 +11,7 @@ describe('rps test', () => {
     cy.get('[data-cy="rock-btn"]').click(); //clicks the button
     cy.get('[data-cy="user-choice"]').should("exist").should("have.text", "Rock"); //checks if choice is displayed correctly
     cy.get('[data-cy="computer-choice"]').should("exist"); //checks a computer choice is selected after the user's
-    cy.get('[data-cy="computer-choice"]').then(($compChoice) => {
+    cy.get('[data-cy="computer-choice"]').then(($compChoice) => { //use the then() command to yield check of results in the cy.get.computer-choice
         if ($compChoice.text().includes('Rock')) {cy.get('[data-cy="result"]').should("exist").should("have.text", "It's a Tie!");}
         else if ($compChoice.text().includes('Scissors')) {cy.get('[data-cy="result"]').should("exist").should("have.text", "You Won!");}
         else {cy.get('[data-cy="result"]').should("exist").should("have.text", "You Lost!")}
